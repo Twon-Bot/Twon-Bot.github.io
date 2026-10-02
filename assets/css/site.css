@@ -90,7 +90,7 @@ p:last-child { margin-bottom: 0; }
   background-image:
     linear-gradient(180deg, rgb(10 22 40 / .55) 0%, rgb(10 22 40 / .10) 22%, rgb(10 22 40 / .10) 70%, rgb(10 22 40 / .45) 100%),
     radial-gradient(ellipse 60% 45% at 50% 50%, rgb(10 22 40 / .55) 0%, rgb(10 22 40 / 0) 100%),
-    url("../img/hero-markin-hall.jpg");
+    url("../img/hero-campus-aerial.jpg");
   background-size: cover; background-position: center 60%;
   padding: 120px var(--gutter) 80px;
 }
@@ -146,7 +146,7 @@ td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--rule); vertical-a
 td:first-child { font-weight: 600; white-space: nowrap; }
 
 /* ---------- Team ---------- */
-.person img { width: 100%; aspect-ratio: 1; object-fit: cover; filter: grayscale(1); margin-bottom: 16px; background: var(--mist); }
+.person { border-top: 2px solid var(--brass); padding-top: 20px; }
 .person h3 { font-size: 18px; margin-bottom: 4px; }
 .person .role { color: var(--text); font-size: 15px; margin: 0 0 4px; }
 .person .meta { color: var(--muted); font-size: 15px; margin: 0 0 8px; }
@@ -215,6 +215,30 @@ td:first-child { font-weight: 600; white-space: nowrap; }
 .prose h2:first-child { margin-top: 0; }
 
 /* ---------- Responsive ---------- */
+/* Alumni map (Placements). Inline SVG; site.js adds hover/tap highlighting. */
+.map-wrap { position: relative; }
+.alumni-map { display: block; width: 100%; height: auto; }
+.alumni-map .map-other { fill: #F7F8FA; stroke: var(--rule); stroke-width: .5; }
+.alumni-map .map-land { fill: var(--mist); stroke: #B9C0CA; stroke-width: .6; }
+.map-inset rect { fill: #fff; stroke: var(--rule); }
+.map-inset__label { font: 600 11px var(--sans); letter-spacing: .08em; text-transform: uppercase; fill: var(--muted); }
+.city { cursor: pointer; outline: none; }
+.city__dot { fill: var(--navy); stroke: #fff; stroke-width: 1.5; transition: fill .2s ease, r .2s ease; }
+.city__halo { fill: var(--brass); opacity: 0; transition: opacity .2s ease; }
+.city text { font: 500 12px var(--sans); fill: var(--muted); paint-order: stroke; stroke: #fff; stroke-width: 3px; stroke-linejoin: round; transition: fill .2s ease; }
+.city.is-active .city__dot, .city:focus-visible .city__dot { fill: var(--brass); r: 6; }
+.city.is-active .city__halo, .city:focus-visible .city__halo { opacity: .25; }
+.city.is-active text, .city:focus-visible text { fill: var(--ink); font-weight: 600; }
+.map-tip { position: absolute; pointer-events: none; transform: translate(-50%, calc(-100% - 16px)); background: var(--ink); color: #fff; padding: 8px 12px; border-radius: 4px; font-size: 14px; line-height: 1.35; white-space: nowrap; opacity: 0; transition: opacity .15s ease; }
+.map-tip strong { display: block; font-family: var(--serif); font-size: 16px; }
+.map-tip span { color: rgb(255 255 255 / .75); }
+.map-tip.is-visible { opacity: 1; }
+.city-list { margin: 24px 0 0; padding: 0; list-style: none; display: grid; gap: 16px; }
+.city-list h3 { font: 600 12px var(--sans); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+.city-list ul { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.city-chip { font: 500 14px var(--sans); color: var(--text); background: #fff; border: 1px solid var(--rule); border-radius: 999px; padding: 4px 12px; cursor: pointer; transition: border-color .2s ease, background .2s ease; }
+.city-chip:hover, .city-chip.is-active { border-color: var(--brass); background: #FBF8F1; }
+
 @media (max-width: 960px) {
   :root { --section: 64px; }
   h1 { font-size: 44px; }

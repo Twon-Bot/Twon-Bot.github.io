@@ -39,7 +39,9 @@
           var box = svg.getBoundingClientRect(), wrap = map.getBoundingClientRect();
           var sx = box.width / svg.viewBox.baseVal.width, sy = box.height / svg.viewBox.baseVal.height;
           tip.innerHTML = "<strong>" + name + "</strong><span>" + c.getAttribute("data-region") + "</span>";
-          tip.style.left = (box.left - wrap.left + dot.cx.baseVal.value * sx) + "px";
+          var x = box.left - wrap.left + dot.cx.baseVal.value * sx;
+          var half = tip.offsetWidth / 2;
+          tip.style.left = Math.min(Math.max(x, half), wrap.width - half) + "px"; // keep the label inside the map
           tip.style.top = (box.top - wrap.top + dot.cy.baseVal.value * sy) + "px";
           tip.classList.add("is-visible");
         }

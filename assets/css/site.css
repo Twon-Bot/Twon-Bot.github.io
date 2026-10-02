@@ -196,7 +196,7 @@ td:first-child { font-weight: 600; white-space: nowrap; }
 .firm span { display: none; }
 /* Fallback when a logo file is missing: show the firm name in the serif instead. */
 .firm.no-logo img { display: none; }
-.firm.no-logo span { display: inline; font: 600 20px/1 var(--serif); color: rgb(255 255 255 / .85); }
+.firm.no-logo span { display: inline; font: 600 26px/1 var(--serif); letter-spacing: .02em; color: rgb(255 255 255 / .85); }
 @keyframes marquee { to { transform: translateX(calc(-100% - var(--gap))); } }
 .placements .note { text-align: center; color: var(--on-dark-muted); padding: 0 var(--gutter); }
 
